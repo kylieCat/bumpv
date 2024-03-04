@@ -6,7 +6,7 @@ build:
 	@~/.venvs/bumpv/bin/python setup.py sdist
 
 upload:
-	twine upload dist/*
+	~/.venvs/bumpv/bin/twine upload dist/*
 	rm -rf ./dist
 
 install:
