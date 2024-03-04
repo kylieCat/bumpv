@@ -1,9 +1,9 @@
 shell:
-	@~/.virtualenvs/bumpversion/bin/ipython
+	@~/.venvs/bumpv/bin/ipython
 
 build:
-	~/.virtualenvs/bumpversion/bin/bumpv bump $(part)
-	@~/.virtualenvs/bumpversion/bin/python setup.py sdist
+	@~/.venvs/bumpv/bin/bumpv bump $(part)
+	@~/.venvs/bumpv/bin/python setup.py sdist
 
 upload:
 	twine upload dist/*
