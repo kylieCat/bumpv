@@ -6,3 +6,4 @@ lib/
 .Python
 bumpv.egg-info/
 .pytest_cache
+.idea

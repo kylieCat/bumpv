@@ -20,7 +20,7 @@ setup(
     description=description,
     long_description=long_description,
     install_requires=[
-        "Click==7.0",
+        "Click==7.1.2",
         "pyaml==19.4.1",
     ],
     entry_points={
