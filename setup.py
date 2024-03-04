@@ -1,13 +1,10 @@
 import re
+from pathlib import Path
 from setuptools import setup, find_packages
 
 description = 'Version-bump your software with a single command!'
-
-long_description = re.sub(
-  "\`(.*)\<#.*\>\`\_",
-  r"\1",
-  str(open('README.md', 'rb').read()).replace(description, '')
-)
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='bumpv',
