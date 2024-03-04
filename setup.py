@@ -19,6 +19,7 @@ setup(
     packages=find_packages(),
     description=description,
     long_description=long_description,
+    long_description_content_type='markdown',
     install_requires=[
         "Click==7.1.2",
         "pyaml==19.4.1",
