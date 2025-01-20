@@ -29,7 +29,7 @@ class BumpClient:
         return self.update()
 
     def bump(self, part, dry_run=False):
-        self.new_version = self.current_version.bump(part)
+        self.new_version = str(self.current_version.bump(part))
         return self.update(dry_run)
        
     def update(self, dry_run=False):
