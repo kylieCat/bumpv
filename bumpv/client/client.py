@@ -26,7 +26,7 @@ class BumpClient:
 
     def set(self, override_version):
         self.new_version = Version.from_version_string(override_version, self.config.parse)
-        return self.update(override_version)
+        return self.update()
 
     def bump(self, part, dry_run=False):
         self.new_version = self.current_version.bump(part)
