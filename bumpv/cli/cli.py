@@ -54,6 +54,27 @@ def current():
 
 
 @bumpv.command()
+@click.argument("override_version", required=True)
+@click.option("-v", '--verbose', count=True, default=0, required=False, help="Use to increase verbosity of logging. Ex: -vv")
+@click.option("-d", '--allow-dirty', is_flag=True, help="Allow bumping the version while the working tree is dirty")
+def set(override_version, verbose, allow_dirty):
+    try:
+        client = BumpClient(verbosity=verbose, allow_dirty=allow_dirty)
+    except exceptions.WorkingDirectoryIsDirtyException:
+        sys.exit(1)
+
+    try:
+        client.set(override_version)
+    except exceptions.InvalidTargetFile as err:
+        click.echo(f"error attempting to set the version: {err}")
+        sys.exit(1)
+    except exceptions.VCSCommandError as err:
+        click.echo(f"error attempting to run VCS command:\n\n\t{' '.join(err.command)}\n")
+        click.echo("Error message from VCS:\n")
+        click.echo(err.message)
+        sys.exit(1)
+
+@bumpv.command()
 @click.argument("path", default=".bumpv.cfg", required=False)
 @click.argument("initial_version", default="0.1.0", required=False)
 def init(path, initial_version):
