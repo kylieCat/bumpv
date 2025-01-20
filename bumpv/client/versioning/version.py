@@ -48,9 +48,10 @@ class Version:
         return Version(serialize_formats=serialize_formats, tag_name=tag_name, **match)
 
     @classmethod
-    def from_version_string(cls, version_string, parse):
+    def from_version_string(cls, version_string, parse, serialize_formats=[]):
         match = _parse(version_string, parse)
-        return Version(**match)
+        print(match)
+        return Version(serialize_formats=serialize_formats,**match)
 
     def __getitem__(self, key):
         try:
