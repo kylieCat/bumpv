@@ -35,7 +35,9 @@ class Version:
             self.original = original
 
         if serialize_formats is None:
-            self.serialize_formats = ["{major}.{minor}.{patch}"]
+            self.serialize_formats = ["{major}.{minor}.{patch}-{release}", "{major}.{minor}.{patch}"]
+        else:
+            self.serialize_formats = serialize_formats
 
     @classmethod
     def from_config(cls, config):
@@ -48,9 +50,9 @@ class Version:
         return Version(serialize_formats=serialize_formats, tag_name=tag_name, **match)
 
     @classmethod
-    def from_version_string(cls, version_string, parse):
+    def from_version_string(cls, version_string, parse, serialize_formats=[]):
         match = _parse(version_string, parse)
-        return Version(**match)
+        return Version(serialize_formats=serialize_formats, tag_name="v{new_version}", **match)
 
     def __getitem__(self, key):
         try:
@@ -94,7 +96,7 @@ class Version:
 
     def serialize(self, patterns=None):
         if patterns is None:
-            patterns = ["{major}.{minor}.{patch}"]
+            patterns = ["{major}.{minor}.{patch}-{release}", "{major}.{minor}.{patch}"]
 
         for pattern in patterns:
             if self._pattern_matches_values(pattern):
