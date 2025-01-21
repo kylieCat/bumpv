@@ -11,7 +11,7 @@ long_description = re.sub(
 
 setup(
     name='bumpv',
-    version='0.6.11-schiros+abc',
+    version='0.7.0',
     url='https://github.com/kylie-a/bumpv',
     author='Kylie Auld',
     author_email='kylie.a@protonmail.com',
