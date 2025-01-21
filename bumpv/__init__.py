@@ -5,7 +5,7 @@ from .client import BumpClient, exceptions
 from .client.config import Configuration
 from .client.versioning import Version
 
-__VERSION__ = '0.6.7-schiros+abc'
+__VERSION__ = '0.6.8-schiros+abc'
 
 py_ver = sys.version.split('\n')[0].split(' ')[0]
 DESCRIPTION = f"bumpv: v{__VERSION__} (using Python v{py_ver})"
