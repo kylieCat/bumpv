@@ -76,7 +76,7 @@ class FileUpdater:
         if file_content_before == file_content_after:
             # TODO expose this to be configurable
             file_content_after = file_content_before.replace(
-                self.current_version.original,
+                str(self.current_version.original),
                 replace_with,
             )
 
