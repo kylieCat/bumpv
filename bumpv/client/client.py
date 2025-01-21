@@ -25,15 +25,14 @@ class BumpClient:
         self.new_version = None
 
     def set(self, override_version):
-        self.new_version = Version.from_version_string(override_version, self.config.parse)
+        self.new_version = Version.from_version_string(override_version, self.config.parse, serialize_formats=self.config.serialize)
         return self.update()
 
     def bump(self, part, dry_run=False):
-        self.new_version = str(self.current_version.bump(part))
+        self.new_version = self.current_version.bump(part)
         return self.update(dry_run)
        
     def update(self, dry_run=False):
-        print(self.new_version)
         updater = FileUpdater(self.config, self.current_version, self.new_version)
         updater.replace(dry_run)
 
