@@ -35,7 +35,7 @@ class Version:
             self.original = original
 
         if serialize_formats is None:
-            self.serialize_formats = ["{major}.{minor}.{patch}-{release}", "{major}.{minor}.{patch}"]
+            self.serialize_formats = ["{major}.{minor}.{patch}+{release}", "{major}.{minor}.{patch}"]
         else:
             self.serialize_formats = serialize_formats
 
@@ -96,7 +96,7 @@ class Version:
 
     def serialize(self, patterns=None):
         if patterns is None:
-            patterns = ["{major}.{minor}.{patch}-{release}", "{major}.{minor}.{patch}"]
+            patterns = ["{major}.{minor}.{patch}+{release}", "{major}.{minor}.{patch}"]
 
         for pattern in patterns:
             if self._pattern_matches_values(pattern):
