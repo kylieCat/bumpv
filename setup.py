@@ -8,7 +8,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='bumpv',
-    version='0.7.2',
+    version='0.8.0',
     url='https://github.com/kylieCat/bumpv',
     author='Kylie Auld',
     author_email='kylie.a@protonmail.com',
