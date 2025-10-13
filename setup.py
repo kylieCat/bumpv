@@ -9,7 +9,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     name='bumpv',
     version='0.7.2',
-    url='https://github.com/kylie-a/bumpv',
+    url='https://github.com/kylieCat/bumpv',
     author='Kylie Auld',
     author_email='kylie.a@protonmail.com',
     license='MIT',
@@ -18,7 +18,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     install_requires=[
-        "Click==7.1.2",
+        "Click>=8.0.0",
         "pyaml==19.4.1",
     ],
     entry_points={
